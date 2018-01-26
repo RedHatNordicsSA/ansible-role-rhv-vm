@@ -1,0 +1,43 @@
+---
+#
+rhv_vm_url:
+#
+rhv_vm_username:
+#
+rhv_vm_password:
+#
+rhv_vm_cafile:
+# Name of the virtual machine.
+rhv_vm_name:
+# Name of the template, which should be used to create Virtual Machine.
+rhv_vm_template:
+# Name of the cluster, where Virtual Machine should be created.
+rhv_vm_cluster:
+# Amount of memory of the Virtual Machine.
+rhv_vm_memory:
+# Number of virtual CPUs cores of the Virtual Machine
+rhv_vm_cpu_cores:
+#
+rhv_vm_extra_disk_size:
+#
+rhv_vm_extra_disk_format: cow
+#
+rhv_vm_extra_disk_interface: virtio
+#
+rhv_vm_storage_domain:
+#
+rhv_vm_nic_boot_protocol: static
+#
+rhv_vm_nic_name: eth0
+#
+rhv_vm_ip:
+#
+rhv_vm_domain:
+#
+rhv_vm_netmask:
+#
+rhv_vm_gw:
+#
+rhv_vm_dns1:
+#
+rhv_vm_dns2:
