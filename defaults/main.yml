@@ -12,11 +12,11 @@ rhv_vm_name:
 # Name of the template, which should be used to create Virtual Machine.
 rhv_vm_template:
 # Name of the cluster, where Virtual Machine should be created.
-rhv_vm_cluster:
-# Amount of memory of the Virtual Machine.
-rhv_vm_memory:
+rhv_vm_cluster: Default
+# Amount of memory of the Virtual Machine. Prefix uses IEC 60027-2 standard (for example 1GiB, 1024MiB).
+rhv_vm_memory: 1024MiB
 # Number of virtual CPUs cores of the Virtual Machine
-rhv_vm_cpu_cores:
+rhv_vm_cpu_cores: 1
 #
 rhv_vm_extra_disk_size:
 #
