@@ -7,6 +7,8 @@ rhv_vm_username:
 rhv_vm_password:
 #
 rhv_vm_cafile:
+#
+rhv_vm_state: present
 # Name of the virtual machine.
 rhv_vm_name:
 # Name of the template, which should be used to create Virtual Machine.

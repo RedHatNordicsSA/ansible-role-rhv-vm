@@ -11,7 +11,7 @@
 - name: Create Virtual Machine
   ovirt_vms:
     auth: "{{ ovirt_auth }}"
-    state: present
+    state: "{{ rhv_vm_state }}"
     name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
     template: "{{ rhv_vm_template }}"
     cluster: "{{ rhv_vm_cluster }}"
