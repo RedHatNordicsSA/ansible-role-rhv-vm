@@ -59,6 +59,7 @@
     host="{{ rhv_vm_ip }}"
     search_regex=OpenSSH
     delay=10
+  when: rhv_vm_state == "present"
 
 - name: Revoke the SSO token for RHV
   ovirt_auth:
