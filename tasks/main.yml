@@ -27,6 +27,14 @@
       nic_on_boot: true
       dns_servers: "{{ rhv_vm_dns1 }}"
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
+  when: rhv_vm_state == "present"
+
+- name: Delete Virtual Machine
+  ovirt_vms:
+    auth: "{{ ovirt_auth }}"
+    state: "{{ rhv_vm_state }}"
+    name: "{{ ansible_fqdn }}"
+  when: rhv_vm_state == "absent"
 
 - name: Add Extra disk
   ovirt_disks:

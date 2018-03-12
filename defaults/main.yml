@@ -7,7 +7,7 @@ rhv_vm_username:
 rhv_vm_password:
 #
 rhv_vm_cafile:
-#
+# State of the vm present or absent.
 rhv_vm_state: present
 # Name of the virtual machine.
 rhv_vm_name:
