@@ -1,6 +1,5 @@
-
 ---
-- name: Obtain SSO token for RHV
+- name: Obtain SSO token for authentication to Red Hat Virtualization
   no_log: false
   ovirt_auth:
     url: "{{ rhv_vm_url }}"
@@ -36,7 +35,7 @@
     name: "{{ ansible_fqdn }}"
   when: rhv_vm_state == "absent"
 
-- name: Add Extra disk
+- name: Add Extra disk to virtual machine
   ovirt_disks:
     auth: "{{ ovirt_auth }}"
     name: "{{ rhv_vm_name+'-Data_disk' }}"
@@ -53,7 +52,7 @@
           (rhv_vm_extra_disk_size | trim == '')
         )
 
-- name: Wait for VM to respond to SSH
+- name: Wait for Virtual Machine to boot up and become responsive to SSH
   wait_for:
     port=22
     host="{{ rhv_vm_ip }}"
@@ -61,7 +60,7 @@
     delay=10
   when: rhv_vm_state == "present"
 
-- name: Revoke the SSO token for RHV
+- name: Revoke the SSO token we generated for provisioning the Virtual Machine
   ovirt_auth:
     state: absent
     ovirt_auth: "{{ ovirt_auth }}"
