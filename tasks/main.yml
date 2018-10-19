@@ -8,7 +8,7 @@
     ca_file: "{{ rhv_vm_cafile }}"
 
 - name: Create Virtual Machine
-  ovirt_vms:
+  ovirt_vm:
     auth: "{{ ovirt_auth }}"
     state: "{{ rhv_vm_state }}"
     name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
@@ -29,7 +29,7 @@
   when: rhv_vm_state == "present"
 
 - name: Delete Virtual Machine
-  ovirt_vms:
+  ovirt_vm:
     auth: "{{ ovirt_auth }}"
     state: "{{ rhv_vm_state }}"
     name: "{{ ansible_fqdn }}"
