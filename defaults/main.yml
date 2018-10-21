@@ -24,7 +24,7 @@ rhv_vm_extra_disk_size:
 #
 rhv_vm_extra_disk_format: cow
 #
-rhv_vm_extra_disk_interface: virtio
+rhv_vm_extra_disk_interface: virtio_scsi
 #
 rhv_vm_storage_domain:
 #
