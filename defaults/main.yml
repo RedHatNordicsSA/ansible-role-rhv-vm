@@ -43,3 +43,5 @@ rhv_vm_gw:
 rhv_vm_dns1:
 #
 rhv_vm_dns2:
+#
+rhv_vm_comment: "Created by Ansible"

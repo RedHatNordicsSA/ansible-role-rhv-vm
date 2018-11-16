@@ -16,6 +16,7 @@
     cluster: "{{ rhv_vm_cluster }}"
     cpu_cores: "{{ rhv_vm_cpu_cores }}"
     memory: "{{ rhv_vm_memory }}"
+    comment: "{{ rhv_vm_comment }}"
     wait: True
     cloud_init:
       nic_boot_protocol: "{{ rhv_vm_nic_boot_protocol }}"
