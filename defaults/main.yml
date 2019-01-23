@@ -8,7 +8,7 @@ rhv_vm_password:
 #
 rhv_vm_cafile:
 # State of the vm present or absent.
-rhv_vm_state: present
+rhv_vm_state: running
 # Name of the virtual machine.
 rhv_vm_name:
 # Name of the template, which should be used to create Virtual Machine.
