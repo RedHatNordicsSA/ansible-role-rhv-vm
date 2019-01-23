@@ -34,7 +34,9 @@
           users:
             - name: default
               passwd: {{ rhv_vm_password_hash }}
+              lock_passwd: false
             - name: root
+              lock_passwd: false
               passwd: {{ rhv_vm_password_hash }}
           write_files:
           - content: |
