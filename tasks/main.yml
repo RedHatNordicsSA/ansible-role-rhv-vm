@@ -30,15 +30,15 @@
       nic_on_boot: true
       dns_servers: "{{ rhv_vm_dns1 }}"
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
+      custom_script: |
+          users:
+            - name: root
+              passwd: "{{ rhv_vm_password }}"
+          write_files:
+          - content: |
+              network: {config: disabled}
+            path: /etc/cloud/cloud.cfg.d/10_disable_network.cfg
     cloud_init_persist: True
-    custom_script: |
-        users:
-          - name: root
-            passwd: "{{ rhv_vm_password }}"
-        write_files:
-        - content: |
-            network: {config: disabled}
-          path: /etc/cloud/cloud.cfg.d/10_disable_network.cfg
   when: rhv_vm_state == "present" or rhv_vm_state == "running"
 
 - name: Delete Virtual Machine
