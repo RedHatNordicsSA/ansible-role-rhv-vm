@@ -18,6 +18,9 @@
     memory: "{{ rhv_vm_memory }}"
     comment: "{{ rhv_vm_comment }}"
     wait: True
+    nics:
+      - name: "{{ rhv_vm_nic_name }}"
+        profile_name: "{{ rhv_vm_nic_profile }}"
     cloud_init:
       nic_boot_protocol: "{{ rhv_vm_nic_boot_protocol }}"
       nic_ip_address: "{{ rhv_vm_ip }}"
