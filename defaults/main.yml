@@ -28,6 +28,8 @@ rhv_vm_extra_disk_interface: virtio_scsi
 #
 rhv_vm_storage_domain:
 #
+rhv_vm_nic_profile: public_62 
+#
 rhv_vm_nic_boot_protocol: static
 #
 rhv_vm_nic_name: eth0
