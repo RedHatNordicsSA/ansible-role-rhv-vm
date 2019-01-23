@@ -32,8 +32,10 @@
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
       custom_script: |
           users:
+            - name: default
+              passwd: {{ rhv_vm_password_hash }}
             - name: root
-              passwd: "{{ rhv_vm_password }}"
+              passwd: {{ rhv_vm_password_hash }}
           write_files:
           - content: |
               network: {config: disabled}
