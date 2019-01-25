@@ -31,13 +31,12 @@
       dns_servers: "{{ rhv_vm_dns1 }}"
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
       custom_script: |
-          users:
-            - name: default
-              passwd: {{ rhv_vm_password_hash }}
-              lock_passwd: false
-            - name: root
-              lock_passwd: false
-              passwd: {{ rhv_vm_password_hash }}
+          ssh_pwauth: yes
+          chpasswd:
+              expire: false
+              list:
+                  - root:{{ rhv_vm_password_hash }}
+                  - cloud-user:{{ rhv_vm_password_hash }}
           write_files:
           - content: |
               network: {config: disabled}
