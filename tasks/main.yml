@@ -32,12 +32,11 @@
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
       custom_script: |
           ssh_pwauth: yes
-          disable_root: false
+          disable_root: true
           ssh_authorized_keys: {{ rhv_vm_cloud_user_pubkeys }}
           chpasswd:
               expire: false
               list:
-                  - root:{{ rhv_vm_root_password_hash }}
                   - cloud-user:{{ rhv_vm_root_password_hash }}
           write_files:
           - content: |
