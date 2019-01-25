@@ -27,7 +27,7 @@
       nic_on_boot: true
       dns_servers: "{{ rhv_vm_dns1 }}"
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
-    cloud_init_persist: true
+    #cloud_init_persist: true
   when: rhv_vm_state == "present" or rhv_vm_state == "running"
 
 - name: Delete Virtual Machine
