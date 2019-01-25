@@ -41,7 +41,7 @@
           - content: |
               network: {config: disabled}
             path: /etc/cloud/cloud.cfg.d/10_disable_network.cfg
-    cloud_init_persist: True
+    cloud_init_persist: False
   when: rhv_vm_state == "present" or rhv_vm_state == "running"
 
 - name: Delete Virtual Machine
