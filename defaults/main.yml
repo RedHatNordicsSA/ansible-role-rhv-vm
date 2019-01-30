@@ -51,5 +51,6 @@ rhv_vm_comment: "Created by Ansible"
 rhv_vm_cloud_user_pubkeys:
 # VM root password hash
 rhv_vm_root_password_hash:
-
-
+# Just in case not running from Tower
+tower_user_name: 'n/a'
+tower_job_id: 'n/a'

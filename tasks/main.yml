@@ -16,7 +16,7 @@
     cluster: "{{ rhv_vm_cluster }}"
     cpu_cores: "{{ rhv_vm_cpu_cores }}"
     memory: "{{ rhv_vm_memory }}"
-    comment: "{{ rhv_vm_comment }}"
+    comment: "{{ rhv_vm_comment }} Tower user-job: {{ tower_user_name }}-{{ tower_job_id }}"
     wait: True
     nics:
       - name: "{{ rhv_vm_nic_name }}"
