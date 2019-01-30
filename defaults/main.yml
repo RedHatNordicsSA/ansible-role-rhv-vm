@@ -27,8 +27,8 @@ rhv_vm_extra_disk_format: cow
 rhv_vm_extra_disk_interface: virtio_scsi
 #
 rhv_vm_storage_domain:
-#
-rhv_vm_nic_profile: public_62 
+# Nic profile defines into which network eth0 will be connected to.
+rhv_vm_nic_profile: 
 #
 rhv_vm_nic_boot_protocol: static
 #
