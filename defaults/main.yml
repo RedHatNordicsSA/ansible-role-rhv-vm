@@ -47,3 +47,9 @@ rhv_vm_dns1:
 rhv_vm_dns2:
 #
 rhv_vm_comment: "Created by Ansible"
+# SSH public key for cloud-user in VM.
+rhv_vm_cloud_user_pubkeys:
+# VM root password hash
+rhv_vm_root_password_hash:
+
+
