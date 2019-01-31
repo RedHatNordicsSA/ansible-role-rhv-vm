@@ -16,8 +16,11 @@
     cluster: "{{ rhv_vm_cluster }}"
     cpu_cores: "{{ rhv_vm_cpu_cores }}"
     memory: "{{ rhv_vm_memory }}"
-    comment: "{{ rhv_vm_comment }}"
+    comment: "{{ rhv_vm_comment }} Tower user-job: {{ tower_user_name }}-{{ tower_job_id }}"
     wait: True
+    nics:
+      - name: "{{ rhv_vm_nic_name }}"
+        profile_name: "{{ rhv_vm_nic_profile }}"
     cloud_init:
       nic_boot_protocol: "{{ rhv_vm_nic_boot_protocol }}"
       nic_ip_address: "{{ rhv_vm_ip }}"
@@ -27,7 +30,20 @@
       nic_on_boot: true
       dns_servers: "{{ rhv_vm_dns1 }}"
       host_name: "{{ rhv_vm_name + '.' + rhv_vm_domain }}"
-    #cloud_init_persist: true
+      custom_script: |
+          ssh_pwauth: yes
+          disable_root: false
+          ssh_authorized_keys: {{ rhv_vm_cloud_user_pubkeys }}
+          chpasswd:
+              expire: false
+              list:
+                  - root:{{ rhv_vm_root_password_hash }}
+                  - cloud-user:{{ rhv_vm_root_password_hash }}
+          write_files:
+          - content: |
+              network: {config: disabled}
+            path: /etc/cloud/cloud.cfg.d/10_disable_network.cfg
+    cloud_init_persist: False
   when: rhv_vm_state == "present" or rhv_vm_state == "running"
 
 - name: Delete Virtual Machine
@@ -56,10 +72,11 @@
 
 - name: Wait for Virtual Machine to boot up and become responsive to SSH
   wait_for:
-    port=22
-    host="{{ rhv_vm_ip }}"
-    search_regex=OpenSSH
-    delay=10
+    port: 22
+    host: "{{ rhv_vm_ip }}"
+    search_regex: OpenSSH
+    delay: 10
+    timeout: 300
   when: rhv_vm_state == "present" or rhv_vm_state == "running"
 
 - name: Revoke the SSO token we generated for provisioning the Virtual Machine

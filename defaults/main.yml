@@ -8,7 +8,7 @@ rhv_vm_password:
 #
 rhv_vm_cafile:
 # State of the vm present or absent.
-rhv_vm_state: present
+rhv_vm_state: running
 # Name of the virtual machine.
 rhv_vm_name:
 # Name of the template, which should be used to create Virtual Machine.
@@ -27,6 +27,8 @@ rhv_vm_extra_disk_format: cow
 rhv_vm_extra_disk_interface: virtio_scsi
 #
 rhv_vm_storage_domain:
+# Nic profile defines into which network eth0 will be connected to.
+rhv_vm_nic_profile: 
 #
 rhv_vm_nic_boot_protocol: static
 #
@@ -45,3 +47,10 @@ rhv_vm_dns1:
 rhv_vm_dns2:
 #
 rhv_vm_comment: "Created by Ansible"
+# SSH public key for cloud-user in VM.
+rhv_vm_cloud_user_pubkeys:
+# VM root password hash
+rhv_vm_root_password_hash:
+# Just in case not running from Tower
+tower_user_name: 'n/a'
+tower_job_id: 'n/a'
