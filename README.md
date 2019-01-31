@@ -1,5 +1,5 @@
-Role Name
-=========
+ansible-role-rhv-vm
+===================
 
 Create virtual machine into RHV, and do basic initialisations for it. This is
 tested with RHEL7.
