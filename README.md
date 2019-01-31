@@ -1,31 +1,43 @@
-Role Name
-=========
+ansible-role-rhv-vm
+===================
 
-A brief description of the role goes here.
+Create virtual machine into RHV, and do basic initialisations for it. This is
+tested with RHEL7.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+It is required to install oVirt SDK onto tower machine in order to use this
+role. RPM name is python-ovirt-engine-sdk4.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+There is list of variables in defaults/main.yml which can be overridden in
+vault or in Tower. You need to modify them to use this role.
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+We also have infra_playbooks collection, which this module is part of.
+See [our blogs on github](https://redhatnordicssa.github.io/) for more info.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```
+- include_role:
+    name: ansible-role-rhv-vm
+  vars:
+    rhv_vm_name: "{{ short_hostname }}"
+    rhv_vm_domain: "{{ domain }}"
+    rhv_vm_ip: "{{ phpipam_ip }}"
+    rhv_vm_netmask: "{{ phpipam_netmask }}"
+    rhv_vm_gw: "{{ phpipam_gw }}"
+    rhv_vm_dns1: "{{ phpipam_nameserver1 }}"
+    rhv_vm_state: running
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
 License
 -------
@@ -35,4 +47,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[Red Hat SAs](https://redhatnordicssa.github.io/)
